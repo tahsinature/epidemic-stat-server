@@ -1,0 +1,26 @@
+{
+  "name": "covid19-stat-server",
+  "version": "1.0.0",
+  "description": "very basic api server for covid stat",
+  "main": "src/app",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon ."
+  },
+  "keywords": [],
+  "author": "Tahsin",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "axios": "^0.19.2",
+    "cors": "^2.8.5",
+    "dotenv-flow": "^3.1.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "lodash": "^4.17.15",
+    "morgan": "^1.10.0"
+  }
+}
