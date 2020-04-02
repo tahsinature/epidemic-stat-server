@@ -14,7 +14,7 @@ app.use(errorMiddleware);
 
 const startServer = () => {
   validateEnvVars();
-  app.listen(envVars.APP_PORT, () => {
+  app.listen(process.env.port || envVars.APP_PORT, () => {
     console.log(`server started on port ${envVars.APP_PORT}`);
   });
 };
