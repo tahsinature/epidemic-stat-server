@@ -16,16 +16,17 @@ app.use(errorMiddleware);
 
 const startServer = () => {
   validateEnvVars();
-  app.listen(process.env.PORT || envVars.APP_PORT, () => {
-    console.log(`server started on port ${envVars.APP_PORT}`);
+  const appPort = process.env.PORT || envVars.APP_PORT;
+  app.listen(appPort, () => {
+    console.log(`server started on port ${appPort}`);
   });
 };
 
-process.on("unhandledRejection", err => {
+process.on("unhandledRejection", (err) => {
   console.log(err.message); // should use wins or dbug
 });
 
-process.on("uncaughtException", err => {
+process.on("uncaughtException", (err) => {
   console.log(err.message); // should use wins or dbug
 });
 
