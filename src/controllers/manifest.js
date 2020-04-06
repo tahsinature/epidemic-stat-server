@@ -1,4 +1,4 @@
-const sdk = require("../sdk/covid19");
+const sdk = require("../sdk");
 const response = require("../util/response");
 const compareVersions = require("compare-versions");
 const { envVars } = require("../util/environment");

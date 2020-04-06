@@ -6,7 +6,7 @@ const dotEnv = require("dotenv-flow");
 const envs = {
   development: "development",
   staging: "staging",
-  production: "production"
+  production: "production",
 };
 
 const defaultEnv = envs.development;
@@ -21,21 +21,21 @@ dotEnv.config();
 // debug.app(`Environment: ${process.env.NODE_ENV}`);
 
 const schema = Joi.object({
-  APP_PORT: Joi.number()
-    .integer()
-    .required(),
+  APP_PORT: Joi.number().integer().required(),
   DB_URI: Joi.string().required(),
+  SENTRY_DSN: Joi.string().required(),
   DEBUG_APP: Joi.boolean().required(),
   MINIMUM_MOBILE_APP_REQUIREMENT: Joi.string().required(),
-  LATEST_MOBILE_APP_VERSION: Joi.string().required()
+  LATEST_MOBILE_APP_VERSION: Joi.string().required(),
 }).required();
 
 const envVars = {
   APP_PORT: parseInt(process.env.APP_PORT),
   DB_URI: process.env.DB_URI,
+  SENTRY_DSN: process.env.SENTRY_DSN,
   DEBUG_APP: ["true", "1", "True"].includes(process.env.DEBUG_APP),
   MINIMUM_MOBILE_APP_REQUIREMENT: process.env.MINIMUM_MOBILE_APP_REQUIREMENT,
-  LATEST_MOBILE_APP_VERSION: process.env.LATEST_MOBILE_APP_VERSION
+  LATEST_MOBILE_APP_VERSION: process.env.LATEST_MOBILE_APP_VERSION,
 };
 
 const validateEnvVars = () => {
@@ -44,4 +44,4 @@ const validateEnvVars = () => {
   if (error) throw error;
 };
 
-module.exports = { validateEnvVars, envVars };
+module.exports = { validateEnvVars, envVars, envs };

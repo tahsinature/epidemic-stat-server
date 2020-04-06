@@ -1,3 +1,4 @@
+const Sentry = require("./util/sentry");
 const express = require("express");
 require("express-async-errors");
 const app = express();
@@ -7,6 +8,7 @@ const cors = require("cors");
 const errorMiddleware = require("./middlewares/error");
 const metaHeaderMiddleware = require("./middlewares/metaHeader");
 
+app.use(Sentry.Handlers.requestHandler());
 app.use(cors());
 app.use(morgan("dev"));
 app.use(metaHeaderMiddleware);
