@@ -46,6 +46,8 @@ class Covid19Sdk {
 
     return result;
   };
+
+  getSdkSupportedCountries = () => this.sdkSupportedCountries;
 }
 
 module.exports = new Covid19Sdk();

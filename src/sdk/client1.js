@@ -71,6 +71,8 @@ class CovidSdk {
     if (countryName === "Worldwide") transformed = sumStat(transformed);
     return transformed;
   };
+
+  getSdkSupportedCountries = () => this.sdkSupportedCountries;
 }
 
 module.exports = new CovidSdk();

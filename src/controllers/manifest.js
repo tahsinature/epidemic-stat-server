@@ -26,7 +26,7 @@ module.exports = async (req, res) => {
       },
     ],
     meta: {
-      supportedCountries: sdk.sdkSupportedCountries,
+      supportedCountries: sdk.getSdkSupportedCountries(),
     },
   });
 };
