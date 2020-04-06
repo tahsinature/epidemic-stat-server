@@ -1,8 +1,10 @@
 const response = require("../util/response");
-const covidSdk = require("../sdk/rapidCovid");
+const sdk = require("../sdk/covid19");
 
 module.exports = async (req, res) => {
   const countryName = req.query.country;
-  const data = await covidSdk.getResultByCountryName(countryName);
+  const data = await sdk.getResultByCountryName(countryName);
+  console.log(data);
+
   response.success(res, data);
 };

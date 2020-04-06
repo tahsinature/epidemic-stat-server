@@ -1,4 +1,4 @@
-const covidSdk = require("../sdk/rapidCovid");
+const sdk = require("../sdk/covid19");
 const response = require("../util/response");
 const compareVersions = require("compare-versions");
 const { envVars } = require("../util/environment");
@@ -18,11 +18,11 @@ module.exports = async (req, res) => {
       {
         source: "Google Drive",
         sourceIcon: "https://icons.iconarchive.com/icons/marcus-roberto/google-play/512/Google-Drive-icon.png",
-        link: "https://drive.google.com/open?id=1PsyKKnhbklYjOalH4VDTE4zkFyDsfFRL"
-      }
+        link: "https://drive.google.com/open?id=1PsyKKnhbklYjOalH4VDTE4zkFyDsfFRL",
+      },
     ],
     meta: {
-      supportedCountries: covidSdk.sdkSupportedCountries
-    }
+      supportedCountries: sdk.sdkSupportedCountries,
+    },
   });
 };

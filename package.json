@@ -2,16 +2,23 @@
   "name": "covid19-stat-server",
   "version": "1.0.0",
   "description": "very basic api server for covid stat",
-  "main": "src/app",
+  "main": "src/kick",
   "scripts": {
     "start": "node .",
-    "dev": "nodemon ."
+    "dev": "nodemon .",
+    "test": "jest --runInBand"
   },
   "keywords": [],
   "author": "Tahsin",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.9.0",
+    "@types/jest": "^25.2.1",
+    "babel-jest": "^25.2.6",
+    "jest": "^25.2.7",
+    "nodemon": "^2.0.2",
+    "supertest": "^4.0.2"
   },
   "dependencies": {
     "@hapi/joi": "^17.1.1",
@@ -22,6 +29,7 @@
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "lodash": "^4.17.15",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "novelcovid": "^1.1.4"
   }
 }
