@@ -1,6 +1,7 @@
 const supertest = require("supertest");
 const app = require("../../app");
 const flags = require("../../util/flags");
+const Joi = require("@hapi/joi");
 
 const request = supertest(app);
 const url = "/manifest";
@@ -19,10 +20,38 @@ describe("Manifest Route", () => {
   });
 
   test("should get success response", async () => {
+    const schema = Joi.object({
+      hasAppUpdate: Joi.boolean().required(),
+      isAppUpdateRequired: Joi.boolean().required(),
+      latestAppVersion: Joi.string().required(),
+      requiredAppVersion: Joi.string().required(),
+      updateLinks: Joi.array()
+        .items(
+          Joi.object({
+            source: Joi.string().required(),
+            sourceIcon: Joi.string().required(),
+            link: Joi.string().uri().required(),
+          })
+        )
+        .required(),
+      meta: Joi.object({
+        supportedCountries: Joi.array().items(
+          Joi.alternatives(
+            Joi.string().required(),
+            Joi.object({
+              name: Joi.string().required(),
+              flag: Joi.string().uri().required(),
+              alpha2Code: Joi.string().max(2).required(),
+            }).required()
+          )
+        ),
+      }),
+    }).required();
+
     const response = await request.get(url).set("meta-data", `{"appVersion":"0.0.1","systemVersion":"10","model":"ONEPLUS A6013"}`);
     expect(response.status).toBe(200);
-    expect(Object.keys(response.body.data)).toEqual(["hasAppUpdate", "isAppUpdateRequired", "latestAppVersion", "requiredAppVersion", "appUpdateLinks", "updateLinks", "meta"]);
-    expect(response.body.data.meta).toHaveProperty("supportedCountries");
+    const { error } = schema.validate(response.body.data);
+    expect(error).toBeUndefined();
   });
 
   // update links schema check

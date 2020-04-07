@@ -11,10 +11,10 @@ module.exports = async (req, res) => {
     isAppUpdateRequired: compareVersions.compare(envVars.MINIMUM_MOBILE_APP_REQUIREMENT, appVersion, ">"),
     latestAppVersion: envVars.LATEST_MOBILE_APP_VERSION,
     requiredAppVersion: envVars.MINIMUM_MOBILE_APP_REQUIREMENT,
-    appUpdateLinks: [{ playStore: "google.com", appStore: "apple.com" }], // unnecessary
     updateLinks: [
       // { source: "Play Store", sourceIcon: "https://cdn4.iconfinder.com/data/icons/free-colorful-icons/360/google_play.png", link: "https://play.google.com/store/apps/details?id=com.github.android" },
       {
+        // test: "123",
         source: "Github",
         sourceIcon: "https://www.stickpng.com/assets/images/5847f98fcef1014c0b5e48c0.png",
         link: "https://github.com/tahsinature/epidemic-stat/releases/download/v0.0.4/Epidemic.Stat.0.0.4.apk",
