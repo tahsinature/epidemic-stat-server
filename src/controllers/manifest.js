@@ -16,12 +16,12 @@ module.exports = async (req, res) => {
       {
         source: "Github",
         sourceIcon: "https://www.stickpng.com/assets/images/5847f98fcef1014c0b5e48c0.png",
-        link: "https://github.com/tahsinature/epidemic-stat/releases/download/v0.0.4/Epidemic.Stat.0.0.4.apk",
+        link: "https://github.com/tahsinature/epidemic-stat/releases/download/v0.0.5/Epidemic.Stat.0.0.5.apk",
       },
       {
         source: "Google Drive",
         sourceIcon: "https://icons.iconarchive.com/icons/marcus-roberto/google-play/512/Google-Drive-icon.png",
-        link: "https://drive.google.com/open?id=1Re2Z9WR6Eo9-95cFUbBlaMLMCl64TtZK",
+        link: "https://drive.google.com/open?id=1StJKzkdAOfWGgQsRxuUugsOwYCc8jzle",
       },
     ],
     meta: {
