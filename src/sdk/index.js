@@ -6,13 +6,15 @@ const clients = {
 class SDK {
   getSdkSupportedCountries;
   getResultByCountryName;
+  getSdkSupportedCountriesInDetail;
 
   loadSdkClient = (sdkClient) => {
-    const { getSdkSupportedCountries, getResultByCountryName } = sdkClient;
-    if (!(getSdkSupportedCountries && getResultByCountryName)) throw new Error("sdk client not supported");
+    const { getSdkSupportedCountries, getResultByCountryName, getSdkSupportedCountriesInDetail } = sdkClient;
+    if (!(getSdkSupportedCountries && getResultByCountryName && getSdkSupportedCountriesInDetail)) throw new Error("sdk client not supported");
 
     this.getSdkSupportedCountries = getSdkSupportedCountries;
     this.getResultByCountryName = getResultByCountryName;
+    this.getSdkSupportedCountriesInDetail = getSdkSupportedCountriesInDetail;
   };
 
   init = () => {

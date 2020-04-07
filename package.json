@@ -1,12 +1,12 @@
 {
-  "name": "covid19-stat-server",
+  "name": "epidemic-stat-server",
   "version": "1.0.0",
   "description": "very basic api server for covid stat",
   "main": "src/kick",
   "scripts": {
     "start": "node .",
     "dev": "nodemon .",
-    "test": "jest --runInBand"
+    "test": "jest"
   },
   "keywords": [],
   "author": "Tahsin",

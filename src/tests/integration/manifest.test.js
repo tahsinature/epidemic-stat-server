@@ -2,6 +2,7 @@ const supertest = require("supertest");
 const app = require("../../app");
 const flags = require("../../util/flags");
 const Joi = require("@hapi/joi");
+const delayReq = require("../util/delayReq");
 
 const request = supertest(app);
 const url = "/manifest";
@@ -35,21 +36,25 @@ describe("Manifest Route", () => {
         )
         .required(),
       meta: Joi.object({
-        supportedCountries: Joi.array().items(
-          Joi.alternatives(
-            Joi.string().required(),
-            Joi.object({
-              name: Joi.string().required(),
-              flag: Joi.string().uri().required(),
-              alpha2Code: Joi.string().max(2).required(),
-            }).required()
+        supportedCountries: Joi.array()
+          .items(
+            Joi.alternatives(
+              Joi.string().required(),
+              Joi.object({
+                name: Joi.string().required(),
+                flag: Joi.string().uri().required(),
+                alpha2Code: Joi.string().max(2).required(),
+              }).required()
+            )
           )
-        ),
+          .min(1),
       }),
     }).required();
 
-    const response = await request.get(url).set("meta-data", `{"appVersion":"0.0.1","systemVersion":"10","model":"ONEPLUS A6013"}`);
+    const response = await delayReq(() => request.get(url).set("meta-data", `{"appVersion":"0.0.1","systemVersion":"10","model":"ONEPLUS A6013"}`), 3000);
+
     expect(response.status).toBe(200);
+
     const { error } = schema.validate(response.body.data);
     expect(error).toBeUndefined();
   });
