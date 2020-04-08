@@ -27,6 +27,7 @@ const schema = Joi.object({
   DEBUG_APP: Joi.boolean().required(),
   MINIMUM_MOBILE_APP_REQUIREMENT: Joi.string().required(),
   LATEST_MOBILE_APP_VERSION: Joi.string().required(),
+  REQUESTBIN_URI: Joi.string().uri().required(),
 }).required();
 
 const envVars = {
@@ -36,6 +37,7 @@ const envVars = {
   DEBUG_APP: ["true", "1", "True"].includes(process.env.DEBUG_APP),
   MINIMUM_MOBILE_APP_REQUIREMENT: process.env.MINIMUM_MOBILE_APP_REQUIREMENT,
   LATEST_MOBILE_APP_VERSION: process.env.LATEST_MOBILE_APP_VERSION,
+  REQUESTBIN_URI: process.env.REQUESTBIN_URI,
 };
 
 const validateEnvVars = () => {
