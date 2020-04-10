@@ -14,14 +14,9 @@ module.exports = async (req, res) => {
     updateLinks: [
       // { source: "Play Store", sourceIcon: "https://cdn4.iconfinder.com/data/icons/free-colorful-icons/360/google_play.png", link: "https://play.google.com/store/apps/details?id=com.github.android" },
       {
-        source: "Github",
-        sourceIcon: "https://www.stickpng.com/assets/images/5847f98fcef1014c0b5e48c0.png",
-        link: "https://github.com/tahsinature/epidemic-stat/releases/download/v0.0.5/Epidemic.Stat.0.0.5.apk",
-      },
-      {
         source: "Google Drive",
         sourceIcon: "https://icons.iconarchive.com/icons/marcus-roberto/google-play/512/Google-Drive-icon.png",
-        link: "https://drive.google.com/open?id=1StJKzkdAOfWGgQsRxuUugsOwYCc8jzle",
+        link: "https://drive.google.com/open?id=1UcMo5b38AKwSlsmGC0dPaDkpevu9QZdI",
       },
     ],
     meta: {
