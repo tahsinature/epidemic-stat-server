@@ -10,7 +10,7 @@ const fetchData = () => {
   return new Promise(async (res, rej) => {
     try {
       const sdkSupportedCountries = await novelCovid.countryNames();
-      const response = await axios.default.get(`${novelCovid.baseURL}/countries`);
+      const response = await axios.default.get(`${novelCovid.baseURL}/v2/countries`);
       const sdkCountryListInDetail = await response.data.map((ele) => ({
         name: ele.country,
         flag: ele.countryInfo.flag,
